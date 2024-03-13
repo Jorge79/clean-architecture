@@ -23,7 +23,7 @@ describe("Product repository test", () => {
 
   it("should create a product", async () => {
     const productRepository = new ProductRepository();
-    const product = new Product("1", "Product 1", 100);
+    const product = new Product("1", "Product 1", 100, "a");
 
     await productRepository.create(product);
 
@@ -33,12 +33,13 @@ describe("Product repository test", () => {
       id: "1",
       name: "Product 1",
       price: 100,
+      type: "a"
     });
   });
 
   it("should update a product", async () => {
     const productRepository = new ProductRepository();
-    const product = new Product("1", "Product 1", 100);
+    const product = new Product("1", "Product 1", 100, "b");
 
     await productRepository.create(product);
 
@@ -48,6 +49,7 @@ describe("Product repository test", () => {
       id: "1",
       name: "Product 1",
       price: 100,
+      type: "b"
     });
 
     product.changeName("Product 2");
@@ -61,12 +63,13 @@ describe("Product repository test", () => {
       id: "1",
       name: "Product 2",
       price: 200,
+      type: "b"
     });
   });
 
   it("should find a product", async () => {
     const productRepository = new ProductRepository();
-    const product = new Product("1", "Product 1", 100);
+    const product = new Product("1", "Product 1", 100, "a");
 
     await productRepository.create(product);
 
@@ -78,21 +81,21 @@ describe("Product repository test", () => {
       id: foundProduct.id,
       name: foundProduct.name,
       price: foundProduct.price,
+      type: foundProduct.type
     });
   });
 
   it("should find all products", async () => {
     const productRepository = new ProductRepository();
-    const product = new Product("1", "Product 1", 100);
+    const product = new Product("1", "Product 1", 100, "a");
     await productRepository.create(product);
 
-    const product2 = new Product("2", "Product 2", 200);
+    const product2 = new Product("2", "Product 2", 200, "b");
     await productRepository.create(product2);
 
     const foundProducts = await productRepository.findAll();
     const products = [product, product2];
 
-    expect(products).toEqual(foundProducts);    
+    expect(products).toEqual(foundProducts);
   });
-  
 });

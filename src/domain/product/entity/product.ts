@@ -2,11 +2,13 @@ import ProductInterface from "./product.interface";
 
 export default class Product implements ProductInterface {
   private _id: string;
+  private _type: string;
   private _name: string;
   private _price: number;
 
-  constructor(id: string, name: string, price: number) {
+  constructor(id: string, name: string, price: number, type: string) {
     this._id = id;
+    this._type = type
     this._name = name;
     this._price = price;
     this.validate();
@@ -15,13 +17,17 @@ export default class Product implements ProductInterface {
   get id(): string {
     return this._id;
   }
-  
+
   get name(): string {
     return this._name;
   }
 
   get price(): number {
     return this._price;
+  }
+
+  get type(): string {
+    return this._type;
   }
 
   changeName(name: string): void {
