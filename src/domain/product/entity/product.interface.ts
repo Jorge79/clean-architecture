@@ -3,4 +3,6 @@ export default interface ProductInterface {
   get type(): string;
   get name(): string;
   get price(): number;
+  changePrice(price: number): void;
+  changeName(name: string): void;
 }
