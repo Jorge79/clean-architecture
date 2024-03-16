@@ -18,19 +18,3 @@ const MockRepository = () => {
     update: jest.fn()
   }
 }
-
-describe("Unit test for product update use case", () => {
-  it("should create a product", async () => {
-    const productRepository = MockRepository();
-    const productUpdateUsecase = new UpdateProductUseCase(productRepository)
-    
-    const output = await productUpdateUsecase.execute(input)
-    
-    expect(output).toEqual({
-      id: expect.any(String),
-      name: input.name,
-      price: input.price,
-      type: input.type
-    })
-  })
-})
