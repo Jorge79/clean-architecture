@@ -23,7 +23,7 @@ describe("Unit test for listing product use case", () => {
     const repository = MockRepository();
     const useCase = new ListProductUseCase(repository);
 
-    const output = await useCase.execute({});
+    const output = await useCase.execute();
 
     expect(output.products.length).toBe(2);
 

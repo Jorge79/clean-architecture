@@ -1,12 +1,12 @@
 export interface InputCreateProductDto {
-  type: string,
   name: string,
   price: number
+  type: string,
 }
 
 export interface OutputCreateProductDto {
   id: string,
-  type: string,
   name: string,
   price: number
+  type: string,
 }
