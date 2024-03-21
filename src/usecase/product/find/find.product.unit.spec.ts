@@ -25,7 +25,7 @@ describe("Unit Test find product use case", () => {
       id: "123",
       name: "Product 2",
       price: 11.99,
-      type: "b"
+      type: "b",
     };
 
     const result = await usecase.execute(input);

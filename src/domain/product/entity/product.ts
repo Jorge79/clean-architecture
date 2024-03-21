@@ -8,7 +8,7 @@ export default class Product implements ProductInterface {
 
   constructor(id: string, name: string, price: number, type: string) {
     this._id = id;
-    this._type = type
+    this._type = type;
     this._name = name;
     this._price = price;
     this.validate();

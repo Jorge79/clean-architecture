@@ -1,12 +1,12 @@
 export interface InputUpdateCustomerDto {
-  id: string,
-  name: string,
-  price: number
+  id: string;
+  name: string;
+  price: number;
 }
 
 export interface OutputUpdateProductDto {
-  id: string,
-  name: string,
-  price: number,
-  type: string
+  id: string;
+  name: string;
+  price: number;
+  type: string;
 }

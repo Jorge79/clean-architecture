@@ -2,7 +2,10 @@ import CustomerFactory from "../../../domain/customer/factory/customer.factory";
 import Address from "../../../domain/customer/value-object/address";
 import UpdateCustomerUseCase from "./update.customer.usecase";
 
-const customer = CustomerFactory.createWithAddress('John', new Address('Street', 123, 'Zip', 'City'))
+const customer = CustomerFactory.createWithAddress(
+  "John",
+  new Address("Street", 123, "Zip", "City"),
+);
 
 const input = {
   id: customer.id,
@@ -13,24 +16,24 @@ const input = {
     zip: "Zip updated",
     city: "City updated",
   },
-}
+};
 
 const MockRepository = () => {
   return {
     create: jest.fn(),
     findAll: jest.fn(),
     find: jest.fn().mockReturnValue(Promise.resolve(customer)),
-    update: jest.fn()
-  }
-}
+    update: jest.fn(),
+  };
+};
 
 describe("Unit test for customer update use case", () => {
   it("should create a customer", async () => {
     const customerRepository = MockRepository();
-    const customerUpdateUsecase = new UpdateCustomerUseCase(customerRepository)
-    
-    const output = await customerUpdateUsecase.execute(input)
-    
+    const customerUpdateUsecase = new UpdateCustomerUseCase(customerRepository);
+
+    const output = await customerUpdateUsecase.execute(input);
+
     expect(output).toEqual({
       id: expect.any(String),
       name: input.name,
@@ -38,8 +41,8 @@ describe("Unit test for customer update use case", () => {
         street: input.address.street,
         number: input.address.number,
         zip: input.address.zip,
-        city: input.address.city
-      }
-    })
-  })
-})
+        city: input.address.city,
+      },
+    });
+  });
+});

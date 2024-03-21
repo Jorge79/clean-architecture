@@ -5,8 +5,8 @@ type Product = {
   name: string;
   price: number;
   type: string;
-}
+};
 
 export interface OutputListProducDto {
-  products: Product[]
+  products: Product[];
 }

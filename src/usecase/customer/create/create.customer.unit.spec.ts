@@ -1,4 +1,4 @@
-import CreateCustomerUseCase from "./create.customer.usecase"
+import CreateCustomerUseCase from "./create.customer.usecase";
 
 const input = {
   name: "John",
@@ -6,25 +6,25 @@ const input = {
     street: "Street",
     number: 123,
     zip: "Zip",
-    city: "City"
-  }
-}
+    city: "City",
+  },
+};
 
 const MockRepository = () => {
   return {
     find: jest.fn(),
     findAll: jest.fn(),
     create: jest.fn(),
-    update: jest.fn()
-  }
-}
+    update: jest.fn(),
+  };
+};
 
 describe("Unit test create customer usecase", () => {
   it("should create a customer", async () => {
     const customerRepository = MockRepository();
-    const customerCreateUsecase = new CreateCustomerUseCase(customerRepository)
+    const customerCreateUsecase = new CreateCustomerUseCase(customerRepository);
 
-    const output = await customerCreateUsecase.execute(input)
+    const output = await customerCreateUsecase.execute(input);
 
     expect(output).toEqual({
       id: expect.any(String),
@@ -33,24 +33,28 @@ describe("Unit test create customer usecase", () => {
         street: input.address.street,
         number: input.address.number,
         zip: input.address.zip,
-        city: input.address.city
-      }
-    })
-  })
+        city: input.address.city,
+      },
+    });
+  });
 
   it("should throw an error when name is missing", async () => {
     const customerRepository = MockRepository();
-    const customerCreateUsecase = new CreateCustomerUseCase(customerRepository)
+    const customerCreateUsecase = new CreateCustomerUseCase(customerRepository);
 
-    input.name = ""
-    await expect(customerCreateUsecase.execute(input)).rejects.toThrow("Name is required")
-  })
+    input.name = "";
+    await expect(customerCreateUsecase.execute(input)).rejects.toThrow(
+      "Name is required",
+    );
+  });
 
   it("should throw an error when street is missing", async () => {
     const customerRepository = MockRepository();
-    const customerCreateUsecase = new CreateCustomerUseCase(customerRepository)
+    const customerCreateUsecase = new CreateCustomerUseCase(customerRepository);
 
-    input.address.street = ""
-    await expect(customerCreateUsecase.execute(input)).rejects.toThrow("Street is required")
-  })
-})
+    input.address.street = "";
+    await expect(customerCreateUsecase.execute(input)).rejects.toThrow(
+      "Street is required",
+    );
+  });
+});

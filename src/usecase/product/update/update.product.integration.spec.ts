@@ -34,14 +34,14 @@ describe("Test update product use case", () => {
       id: "123",
       name: "Product updated",
       price: 1.99,
-      type: "a"
+      type: "a",
     };
 
     const output = {
       id: "123",
       name: "Product updated",
       price: 1.99,
-      type: "a"
+      type: "a",
     };
 
     const result = await usecase.execute(input);

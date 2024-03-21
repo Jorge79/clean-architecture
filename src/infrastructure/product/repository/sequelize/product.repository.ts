@@ -8,7 +8,7 @@ export default class ProductRepository implements ProductRepositoryInterface {
       id: entity.id,
       name: entity.name,
       price: entity.price,
-      type: entity.type
+      type: entity.type,
     });
   }
 
@@ -22,19 +22,30 @@ export default class ProductRepository implements ProductRepositoryInterface {
         where: {
           id: entity.id,
         },
-      }
+      },
     );
   }
 
   async find(id: string): Promise<Product> {
     const productModel = await ProductModel.findOne({ where: { id } });
-    return new Product(productModel.id, productModel.name, productModel.price, productModel.type);
+    return new Product(
+      productModel.id,
+      productModel.name,
+      productModel.price,
+      productModel.type,
+    );
   }
 
   async findAll(): Promise<Product[]> {
     const productModels = await ProductModel.findAll();
-    return productModels.map((productModel) =>
-      new Product(productModel.id, productModel.name, productModel.price, productModel.type)
+    return productModels.map(
+      (productModel) =>
+        new Product(
+          productModel.id,
+          productModel.name,
+          productModel.price,
+          productModel.type,
+        ),
     );
   }
 }

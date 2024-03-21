@@ -11,7 +11,7 @@ productRoute.post("/", async (req: Request, res: Response) => {
     const productDto = {
       name: req.body.name,
       price: req.body.price,
-      type: req.body.type
+      type: req.body.type,
     };
     const output = await usecase.execute(productDto);
     res.send(output);
@@ -24,9 +24,9 @@ productRoute.get("/", async (req: Request, res: Response) => {
   const usecase = new ListProductUseCase(new ProductRepository());
 
   try {
-    const output = await usecase.execute()
-    res.send(output)
+    const output = await usecase.execute();
+    res.send(output);
   } catch (err) {
-    res.status(500).send(err)
+    res.status(500).send(err);
   }
-})
+});

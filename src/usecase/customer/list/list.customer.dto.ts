@@ -9,8 +9,8 @@ type Customer = {
     number: number;
     zip: string;
   };
-}
+};
 
 export interface OutputListCustomerDto {
-  customers: Customer[]
+  customers: Customer[];
 }

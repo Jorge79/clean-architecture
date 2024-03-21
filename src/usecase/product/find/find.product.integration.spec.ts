@@ -39,7 +39,7 @@ describe("Test find product use case", () => {
       id: "123",
       type: "a",
       name: "Product 1",
-      price: 10.99
+      price: 10.99,
     };
 
     const result = await usecase.execute(input);

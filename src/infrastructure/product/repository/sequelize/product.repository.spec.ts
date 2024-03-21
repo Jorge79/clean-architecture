@@ -33,7 +33,7 @@ describe("Product repository test", () => {
       id: "1",
       name: "Product 1",
       price: 100,
-      type: "a"
+      type: "a",
     });
   });
 
@@ -49,7 +49,7 @@ describe("Product repository test", () => {
       id: "1",
       name: "Product 1",
       price: 100,
-      type: "b"
+      type: "b",
     });
 
     product.changeName("Product 2");
@@ -63,7 +63,7 @@ describe("Product repository test", () => {
       id: "1",
       name: "Product 2",
       price: 200,
-      type: "b"
+      type: "b",
     });
   });
 
@@ -81,7 +81,7 @@ describe("Product repository test", () => {
       id: foundProduct.id,
       name: foundProduct.name,
       price: foundProduct.price,
-      type: foundProduct.type
+      type: foundProduct.type,
     });
   });
 

@@ -21,7 +21,7 @@ class OutputMapper {
         id: product.id,
         name: product.name,
         price: product.price,
-        type: product.type
+        type: product.type,
       })),
     };
   }

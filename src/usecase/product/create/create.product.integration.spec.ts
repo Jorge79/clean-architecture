@@ -33,14 +33,14 @@ describe("Test find product use case", () => {
     const input = {
       name: "Product 1",
       price: 10.99,
-      type: "a"
+      type: "a",
     };
 
     const output = {
       id: expect.any(String),
       name: "Product 1",
       price: 10.99,
-      type: "a"
+      type: "a",
     };
 
     const result = await usecase.execute(input);
