@@ -1,17 +1,23 @@
+import Entity from "../../@shared/entity/entity.abstract";
+import NotificationError from "../../@shared/notification/notification.error";
 import ProductInterface from "./product.interface";
 
-export default class Product implements ProductInterface {
-  private _id: string;
+export default class Product extends Entity implements ProductInterface {
   private _type: string;
   private _name: string;
   private _price: number;
 
   constructor(id: string, name: string, price: number, type: string) {
+    super();
     this._id = id;
     this._type = type;
     this._name = name;
     this._price = price;
     this.validate();
+
+    if (this.notification.hasErrors()) {
+      throw new NotificationError(this.notification.getErrors())
+    }
   }
 
   get id(): string {
