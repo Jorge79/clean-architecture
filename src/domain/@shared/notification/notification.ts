@@ -14,6 +14,10 @@ export default class Notification {
     return this.errors
   }
 
+  hasErrors(): boolean {
+    return this.errors.length > 0
+  }
+
   messages(context?: string): string {
     let message = "";
     this.errors.forEach((error) => {
@@ -22,9 +26,5 @@ export default class Notification {
       }
     });
     return message;
-  }
-
-  hasErrors(): boolean {
-    return this.errors.length > 0
   }
 }
