@@ -20,10 +20,6 @@ export default class Product extends Entity implements ProductInterface {
     }
   }
 
-  get id(): string {
-    return this._id;
-  }
-
   get name(): string {
     return this._name;
   }
@@ -48,13 +44,22 @@ export default class Product extends Entity implements ProductInterface {
 
   validate(): boolean {
     if (this._id.length === 0) {
-      throw new Error("Id is required");
+      this.notification.addError({
+        context: "product",
+        message: "Id is required"
+      })
     }
     if (this._name.length === 0) {
-      throw new Error("Name is required");
+      this.notification.addError({
+        context: "product",
+        message: "Name is required"
+      })
     }
     if (this._price < 0) {
-      throw new Error("Price must be greater than zero");
+      this.notification.addError({
+        context: "product",
+        message: "Price must be greater than zero"
+      })
     }
     return true;
   }
