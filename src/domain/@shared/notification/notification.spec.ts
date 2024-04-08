@@ -36,7 +36,7 @@ describe("Unit tests for notification", () => {
     );
   })
 
-  it("should verificate if notification has at leat one error", () => {
+  it("should verificate if notification has at lest one error", () => {
     const notification = new Notification()
     const error = {
       message: "error message",
